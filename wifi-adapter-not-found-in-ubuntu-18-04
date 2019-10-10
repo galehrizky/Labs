@@ -1,0 +1,6 @@
+git clone https://github.com/lwfinger/rtlwifi_new.git
+git checkout extended
+cd rtlwifi_new
+sudo make install
+sudo modprobe -r rtl8723de
+sudo modprobe rtl8723de
