@@ -1,0 +1,40 @@
+## Config ##
+
+<VirtualHost *:80>
+	ServerAdmin webmaster@localhost
+	ServerName galehrizky.id
+	ServerAlias galehrizky.id
+	DocumentRoot /var/www/html/sites
+
+	ErrorLog ${APACHE_LOG_DIR}/error.log
+	CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+	<Directory /var/www/html/sites/>
+		Options Indexes FollowSymLinks
+		AllowOverride All
+		Require all granted
+	</Directory>
+</VirtualHost>
+
+## End Config ##
+
+nano /etc/hosts
+
+## Host ##
+
+127.0.0.1	localhost
+127.0.0.1	sites.id
+
+# The following lines are desirable for IPv6 capable hosts
+::1     ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+
+## End Host ##
+
+sudo service apache2 reload
+sudo a2ensite name.conf
+sudo a2dissite name.conf
+
