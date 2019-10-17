@@ -1,0 +1,2 @@
+htmlspecialchars($_POST)
+htmlentities($_POST)
