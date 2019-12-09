@@ -5,6 +5,7 @@ import re
 import time
 import requests as reqs
 import sys
+from termcolor import colored
 listpage = [
 			"admin.php",
 			"admin/",
@@ -256,6 +257,14 @@ regex = re.compile(
         r'(?::\d+)?' 
         r'(?:/?|[/?]\S+)$', re.IGNORECASE)
 
+def green(str):
+  return colored(str, "green")
+
+def red(str):
+  return colored(str, "red")
+
+def blue(str):
+  return colored(str, "blue")
 url = input("Masukan URL Website ? ")
 
 validasi = re.match(regex, url) is not None
@@ -263,17 +272,17 @@ validasi = re.match(regex, url) is not None
 if validasi == True:	
 	for x in listpage:
 		try:
-			print("Sedang Melakukan scaning "+url+x)
+			print("[~] "+blue("Sedang Melakukan scaning "+url+x))
 			response = reqs.get(url+x).status_code	
 			if response == 200:
-				print("[+] Login di temukan => " +url+x)
+				print("[+]"+ green("Login di temukan =>"+url+x))
 			else:
-				print("[-] Tidak ada :(" +url+x)
+				print("[-]"+ red("Tidak ada :("+url+x))
 				time.sleep(1)
 		except KeyboardInterrupt:
 			sys.exit()
 else:
-	print("Nanaonan Te valid ajg Url na ")
+	print("Url tidak valid ")
 
 
 
