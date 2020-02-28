@@ -1,0 +1,6 @@
+You can solve this by finding
+
+ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+in your .sql file, and swapping it with
+
+ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
